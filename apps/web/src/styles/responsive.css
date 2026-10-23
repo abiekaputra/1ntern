@@ -1,0 +1,156 @@
+/* Module responsible for adapting the 1ntern workspace to tablet and mobile viewports. */
+
+@media (max-width: 1080px) {
+  .app-shell {
+    grid-template-columns: 88px minmax(0, 1fr);
+  }
+  .sidebar {
+    padding-inline: 12px;
+  }
+  .brand {
+    justify-content: center;
+    padding-inline: 0;
+  }
+  .brand div,
+  .sidebar nav span,
+  .boundary-card div {
+    display: none;
+  }
+  .sidebar nav button {
+    justify-content: center;
+    padding: 0;
+  }
+  .boundary-card {
+    justify-content: center;
+  }
+  .workspace-grid {
+    grid-template-columns: 1fr;
+  }
+  .run-panel,
+  .empty-run {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    display: block;
+  }
+  .app-shell main {
+    padding: 18px 16px 96px;
+  }
+  .sidebar {
+    position: fixed;
+    z-index: 30;
+    top: auto;
+    right: 12px;
+    bottom: 12px;
+    left: 12px;
+    display: block;
+    width: auto;
+    height: 68px;
+    padding: 8px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(19, 19, 25, 0.94);
+    box-shadow: var(--shadow);
+  }
+  .brand,
+  .boundary-card {
+    display: none;
+  }
+  .sidebar nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 100%;
+    gap: 3px;
+  }
+  .sidebar nav button {
+    display: flex;
+    min-height: 50px;
+    flex-direction: column;
+    gap: 3px;
+    border-radius: 13px;
+  }
+  .sidebar nav button span {
+    display: block;
+    font-size: 0.58rem;
+  }
+  .sidebar nav button svg {
+    width: 19px;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-copy {
+    padding: 35px 26px 12px;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 13vw, 4rem);
+  }
+  .orbit-graphic {
+    min-height: 245px;
+    transform: scale(0.86);
+  }
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .metric-grid article {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px 12px;
+  }
+  .metric-grid small {
+    width: 100%;
+  }
+  .workspace-grid {
+    display: block;
+  }
+  .intent-panel,
+  .run-panel,
+  .empty-run {
+    min-height: auto;
+    margin-bottom: 16px;
+    padding: 21px;
+  }
+  .run-panel,
+  .empty-run {
+    margin-top: 16px;
+  }
+  .intent-list button {
+    min-height: 126px;
+  }
+  .step {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+  .step .decision {
+    grid-column: 2;
+  }
+  .policy-grid {
+    grid-template-columns: 1fr;
+  }
+  .policy-card {
+    min-height: 185px;
+  }
+  .policy-card h2 {
+    margin-top: 32px;
+  }
+  .history-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 14px 0;
+  }
+  .history-row > span:not(.status) {
+    display: none;
+  }
+  .history-row .status {
+    justify-self: end;
+  }
+  .audit-list article {
+    grid-template-columns: 13px minmax(0, 1fr);
+  }
+  .audit-list time {
+    display: none;
+  }
+}

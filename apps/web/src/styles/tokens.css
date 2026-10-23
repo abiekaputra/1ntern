@@ -1,0 +1,26 @@
+/* Module responsible for defining the 1ntern visual design tokens. */
+
+:root {
+  color-scheme: dark;
+  --ink: #f8f7ff;
+  --muted: #9c9aad;
+  --surface: #111116;
+  --surface-raised: #18181f;
+  --surface-soft: #20202a;
+  --line: rgba(255, 255, 255, 0.1);
+  --violet: #6936ff;
+  --violet-soft: #8b68ff;
+  --yellow: #ffe600;
+  --green: #55dda1;
+  --red: #ff6f7d;
+  --orange: #ffad5c;
+  --radius: 22px;
+  --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+}

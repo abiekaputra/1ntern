@@ -1,0 +1,9 @@
+#!/bin/sh
+set -eu
+pnpm format:check
+pnpm check:files
+pnpm check:dirs
+pnpm check:secrets
+pnpm lint
+pnpm typecheck
+pnpm test

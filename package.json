@@ -1,0 +1,45 @@
+{
+  "name": "1ntern",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A guardrailed local automation assistant for low-risk developer maintenance.",
+  "license": "MIT",
+  "packageManager": "pnpm@11.1.2",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "pnpm": ">=11.0.0 <12"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "scripts": {
+    "build": "pnpm -r --workspace-concurrency=1 build",
+    "capture:screenshots": "node --import tsx scripts/capture-screenshots.ts",
+    "check:dirs": "node scripts/check-directory-limits.mjs",
+    "check:files": "node scripts/check-file-lengths.mjs",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "dev": "pnpm build && node scripts/dev.mjs",
+    "dev:api": "pnpm --filter @oneintern/api dev",
+    "dev:web": "pnpm --filter @oneintern/web dev",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "oxlint --deny-warnings apps packages tests",
+    "quality": "pnpm format:check && pnpm check:files && pnpm check:dirs && pnpm check:secrets && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
+    "setup:local": "pnpm --filter @oneintern/api reset",
+    "test": "pnpm --filter @oneintern/domain build && vitest run",
+    "test:e2e": "pnpm --filter @oneintern/domain build && playwright test",
+    "typecheck": "pnpm --filter @oneintern/domain build && pnpm -r typecheck"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.7.2",
+    "oxlint": "1.87.0",
+    "prettier": "3.9.9",
+    "tsx": "4.21.0",
+    "typescript": "6.0.3",
+    "vitest": "5.0.3"
+  }
+}

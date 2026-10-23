@@ -1,0 +1,110 @@
+/* Module responsible for the desktop navigation shell and responsive canvas. */
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 28px 18px 20px;
+  border-right: 1px solid var(--line);
+  background: rgba(11, 11, 15, 0.94);
+  backdrop-filter: blur(22px);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px 29px;
+}
+.brand-mark {
+  display: block;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  border-radius: 13px;
+  background: url('/oneintern-mark.png') center / contain no-repeat;
+}
+.brand div {
+  display: flex;
+  flex-direction: column;
+}
+.brand strong {
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+.brand span {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.sidebar nav {
+  display: grid;
+  gap: 7px;
+}
+.sidebar nav button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid transparent;
+  border-radius: 13px;
+  padding: 0 13px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+}
+.sidebar nav button:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+}
+.sidebar nav button.active {
+  border-color: rgba(105, 54, 255, 0.42);
+  background: rgba(105, 54, 255, 0.17);
+  color: #dcd3ff;
+}
+.sidebar nav button.active svg {
+  color: var(--yellow);
+}
+.boundary-card {
+  display: flex;
+  gap: 11px;
+  margin-top: auto;
+  padding: 15px 13px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.025);
+}
+.boundary-card div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.boundary-card strong {
+  font-size: 0.76rem;
+}
+.boundary-card span:not(.pulse) {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.35;
+}
+.pulse {
+  width: 9px;
+  height: 9px;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 5px rgba(85, 221, 161, 0.1);
+}
+.app-shell main {
+  overflow: hidden;
+  padding: 34px clamp(24px, 4vw, 64px) 70px;
+}

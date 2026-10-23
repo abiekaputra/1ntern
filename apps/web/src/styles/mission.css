@@ -1,0 +1,244 @@
+/* Module responsible for the mission planning and run execution workspace. */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  min-height: 340px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 82% 38%, rgba(105, 54, 255, 0.34), transparent 27%),
+    linear-gradient(135deg, #171621 5%, #0f0f14 62%);
+}
+.hero::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 38px 38px;
+  content: '';
+  mask-image: linear-gradient(to right, black, transparent 72%);
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  padding: 48px;
+}
+.hero h1 {
+  margin-bottom: 20px;
+  font-size: clamp(2.65rem, 5.5vw, 5.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.07em;
+}
+.hero h1 em {
+  color: var(--yellow);
+  font-style: normal;
+}
+.hero p {
+  max-width: 670px;
+  margin-bottom: 0;
+  color: #b7b4c4;
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+.orbit-graphic {
+  position: relative;
+  min-height: 340px;
+}
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(255, 230, 0, 0.28);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+.orbit-one {
+  width: 270px;
+  height: 130px;
+}
+.orbit-two {
+  width: 190px;
+  height: 250px;
+  border-color: rgba(139, 104, 255, 0.38);
+  transform: translate(-50%, -50%) rotate(28deg);
+}
+.orbit-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 104px;
+  height: 104px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background: rgba(12, 12, 17, 0.88);
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px rgba(105, 54, 255, 0.42);
+}
+.hero-mark {
+  display: block;
+  width: 78px;
+  height: 78px;
+  background: url('/oneintern-mark.png') center / contain no-repeat;
+}
+.orbit-label {
+  position: absolute;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  background: rgba(13, 13, 18, 0.9);
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.label-read {
+  top: 25%;
+  left: 18%;
+  color: var(--green);
+}
+.label-write {
+  top: 23%;
+  right: 10%;
+  color: var(--yellow);
+}
+.label-deny {
+  right: 17%;
+  bottom: 20%;
+  color: var(--red);
+}
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 14px 0 28px;
+}
+.metric-grid article {
+  display: flex;
+  flex-direction: column;
+  padding: 18px 22px;
+  border: 1px solid var(--line);
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.025);
+}
+.metric-grid span,
+.metric-grid small {
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+.metric-grid strong {
+  margin: 5px 0 2px;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+.workspace-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.85fr) minmax(440px, 1.15fr);
+  gap: 18px;
+  align-items: start;
+}
+.intent-panel,
+.run-panel,
+.empty-run {
+  min-height: 500px;
+  padding: 26px;
+}
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.panel-header h2 {
+  margin-bottom: 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.04em;
+}
+.panel-header > svg {
+  color: var(--yellow);
+}
+.intent-list {
+  display: grid;
+  gap: 10px;
+}
+.intent-list button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  min-height: 118px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition:
+    border-color 0.2s,
+    transform 0.2s,
+    background 0.2s;
+}
+.intent-list button:hover {
+  border-color: rgba(255, 230, 0, 0.48);
+  background: rgba(255, 230, 0, 0.035);
+  transform: translateY(-2px);
+}
+.intent-list button > svg {
+  flex: 0 0 auto;
+  color: var(--yellow);
+}
+.intent-list div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.intent-list strong {
+  font-size: 1rem;
+}
+.intent-list span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+.intent-list small {
+  color: #d8d5e3;
+  font-size: 0.72rem;
+}
+.empty-run {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.empty-run h2 {
+  margin-bottom: 10px;
+}
+.empty-run p {
+  max-width: 390px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+.empty-glyph {
+  display: grid;
+  width: 82px;
+  height: 82px;
+  margin-bottom: 25px;
+  place-items: center;
+  border: 1px solid rgba(105, 54, 255, 0.5);
+  border-radius: 24px;
+  background: rgba(105, 54, 255, 0.15);
+  color: var(--yellow);
+  font-size: 2.5rem;
+  font-weight: 900;
+  box-shadow: 0 0 46px rgba(105, 54, 255, 0.2);
+}

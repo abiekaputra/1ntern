@@ -1,0 +1,133 @@
+/* Module responsible for history, policy, and audit evidence layouts. */
+
+.table-card,
+.audit-list,
+.policy-detail {
+  overflow: hidden;
+  padding: 8px 22px;
+}
+.history-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 100px 160px;
+  gap: 18px;
+  align-items: center;
+  min-height: 82px;
+  border-bottom: 1px solid var(--line);
+}
+.history-row:last-child {
+  border-bottom: 0;
+}
+.history-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.history-row div span,
+.history-row > span:not(.status) {
+  color: var(--muted);
+  font-size: 0.77rem;
+}
+.history-row .status {
+  justify-self: end;
+}
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 18px;
+}
+.policy-card {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  padding: 26px;
+}
+.policy-card::after {
+  position: absolute;
+  right: -40px;
+  bottom: -50px;
+  width: 150px;
+  height: 150px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.12;
+  content: '';
+}
+.policy-card > span {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.policy-card h2 {
+  margin: 48px 0 12px;
+  font-size: 1.25rem;
+}
+.policy-card p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.tone-allow {
+  color: var(--green);
+}
+.tone-approve {
+  color: var(--yellow);
+}
+.tone-deny {
+  color: var(--red);
+}
+.policy-detail {
+  padding: 28px;
+}
+.policy-detail h2 {
+  margin-bottom: 12px;
+}
+.policy-detail p {
+  max-width: 790px;
+  margin-bottom: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.audit-list {
+  padding: 12px 26px;
+}
+.audit-list article {
+  display: grid;
+  grid-template-columns: 13px minmax(0, 1fr) 72px;
+  gap: 14px;
+  align-items: start;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+.audit-list article:last-child {
+  border-bottom: 0;
+}
+.event-dot {
+  width: 9px;
+  height: 9px;
+  margin-top: 5px;
+  border: 2px solid var(--violet-soft);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(105, 54, 255, 0.1);
+}
+.audit-list strong {
+  font-size: 0.86rem;
+}
+.audit-list p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 0.77rem;
+  line-height: 1.45;
+}
+.audit-list time {
+  color: var(--muted);
+  font-size: 0.7rem;
+  text-align: right;
+}
+.empty-inline {
+  padding: 44px 12px;
+  color: var(--muted);
+  text-align: center;
+}
