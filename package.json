@@ -1,6 +1,6 @@
 {
   "name": "1ntern",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "A guardrailed local automation assistant for low-risk developer maintenance.",
@@ -30,7 +30,7 @@
     "quality": "pnpm format:check && pnpm check:files && pnpm check:dirs && pnpm check:secrets && pnpm lint && pnpm typecheck && pnpm test && pnpm build",
     "setup:local": "pnpm --filter @oneintern/api reset",
     "test": "pnpm --filter @oneintern/domain build && vitest run",
-    "test:e2e": "pnpm --filter @oneintern/domain build && playwright test",
+    "test:e2e": "pnpm build && playwright test",
     "typecheck": "pnpm --filter @oneintern/domain build && pnpm -r typecheck"
   },
   "devDependencies": {
